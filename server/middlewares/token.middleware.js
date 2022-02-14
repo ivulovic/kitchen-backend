@@ -2,9 +2,7 @@ const jwt = require("jsonwebtoken");
 const { secret } = require("../constants");
 
 function tokenMiddleware(req, res, next) {
-  // const token = req.cookies["Authorization"];
-  const token = req.headers["authorization"];
-  // console.log(req.headers)
+  const token = req.cookies["Authorization"];
   if (!token) {
     res.status(403).send("Unauthorized");
   } else {

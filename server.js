@@ -17,5 +17,5 @@ app.use("/api/store", storeRoutes);
 app.use("/api/product", productRoutes);
 app.use("/api/order", orderRoutes);
 
-app.listen(port, () => console.log(`Wishlist, Listening on port ${port}`));
+app.listen(port, () => console.log(`Kitchen, Listening on port ${port}`));
 module.exports = app;
