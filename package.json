@@ -1,0 +1,25 @@
+{
+  "name": "lipster-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start:ws": "nodemon socket.js",
+    "start:api": "nodemon server.js",
+    "build:api": "rm -rf build && pkg server.js --target node12-linux-x64 --out-path ./apibuild",
+    "build:ws": "rm -rf build && pkg socket.js --target node12-linux-x64 --out-path ./wsbuild"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.15",
+    "ws": "^8.5.0",
+    "body-parser": "^1.18.3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-promise-router": "^3.0.3",
+    "joi": "^14.3.1",
+    "jsonwebtoken": "^8.5.0",
+    "mongoose": "^5.4.16"
+  }
+}
