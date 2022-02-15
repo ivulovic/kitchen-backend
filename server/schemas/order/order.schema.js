@@ -5,7 +5,7 @@ module.exports = {
     productId: Joi.string().required(),
     quantity: Joi.string().required(),
     delivery: Joi.boolean().required(),
-    description: Joi.string(),
+    description: Joi.string().allow(""),
   }),
   update: Joi.object().keys({
     quantity: Joi.string(),
