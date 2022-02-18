@@ -6,7 +6,6 @@ module.exports = {
   list: async (req, res) => {
     var today = new Date().setHours(0,0,0);
     let arr = await DeliveryModel.find({ createdAt: { $gt: today } }, { modifiedBy: 0, __v: 0 })
-                                .sort("-modifiedAt")
                                 .populate({
                                   path: "storeId",
                                 });
