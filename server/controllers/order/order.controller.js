@@ -1,5 +1,6 @@
-const { AccountModel } = require("../../models");
 const OrderModel = require("../../models/order/order.model");
+const AccountModel = require("../../models/account/account.model");
+const ProductModel = require("../../models/product/product.model");
 
 module.exports = {
   list: async (req, res) => {
@@ -25,6 +26,8 @@ module.exports = {
     content.modifiedBy = req.decoded.user;
     const objToSave = new OrderModel(content);
     let savedObj = await objToSave.save();
+    savedObj.productId = await ProductModel.findById(savedObj.productId);
+    savedObj.createdBy = await AccountModel.findById(savedObj.createdBy);
     res.status(200).send(savedObj);
   },
   remove: async (req, res) => {

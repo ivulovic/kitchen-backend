@@ -38,7 +38,6 @@ module.exports = {
     content.modifiedAt = Date.now();
     const objToSave = await DeliveryModel.findByIdAndUpdate(id, content).populate("storeId");
     objToSave.createdBy = await AccountModel.findById(objToSave.createdBy, { password: 0, emailConfirmed: 0 });
-    // objToSave.modifiedBy = await AccountModel.findById(objToSave.createdBy, { password: 0, emailConfirmed: 0 });
     res.status(200).send({ ...objToSave._doc, ...content });
   },
 };
